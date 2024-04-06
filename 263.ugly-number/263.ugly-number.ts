@@ -4,23 +4,20 @@
  * [263] Ugly Number
  */
 
-
 // @lc code=start
-const ugly = new Set([2,3,5]);
-
 function isUgly(n: number): boolean {
     if (n <= 0) return false;
-
-    const uglyNumbers = ugly.values;
     
-    for (let i = 6; i >= 0; i--) {
-        if (ugly.has(n)) return true;
+    const baseUglyNumber = [2, 3, 5];
+    
+    for (let i = 2; i >= 0; i--) {
+        if (baseUglyNumber.includes(n)) return true;
 
-        if (n % uglyNumbers[i] !== 0) {
+        if (n % baseUglyNumber[i] !== 0) {
             continue;
         }
         else {
-            n /= uglyNumbers[i];
+            n /= baseUglyNumber[i];
             i++;
         }
     }
